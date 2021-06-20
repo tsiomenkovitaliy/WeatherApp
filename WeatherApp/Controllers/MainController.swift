@@ -71,5 +71,6 @@ final class MainController: UIViewController {
 extension MainController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.text = searchText
+        searchBar.backgroundColor = .clear
     }
 }

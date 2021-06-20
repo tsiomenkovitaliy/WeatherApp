@@ -28,28 +28,25 @@ final class LocationService: NSObject {
 // MARK: - CLLocationManagerDelegate
 
 extension LocationService: CLLocationManagerDelegate{
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
         
-        if let location = locations.first {
-            let lat = Float(location.coordinate.latitude)
-            let lon = Float(location.coordinate.longitude)
-            locationChange?(CoordModel(lon: lon, lat: lat))
+        if let coordinate = locations.first?.coordinate {
+            locationChange?(CoordModel(lon: coordinate.longitude,
+                                       lat: coordinate.latitude))
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
         
         switch manager.authorizationStatus {
-        case .authorizedAlways,
-             .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             manager.requestLocation()
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
-        case .restricted,
-             .denied:
+        case .restricted, .denied:
             guard let url = URL(string:UIApplication.openSettingsURLString) else { return }
-            
             UIApplication.shared.open(url)
         @unknown default:
             fatalError()

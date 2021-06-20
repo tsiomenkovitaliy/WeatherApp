@@ -1,8 +1,8 @@
 import Foundation
 
-final class DetailsViewModel: NSObject{
+final class DetailsViewModel {
     
     // MARK: - Public Properties
     
-    var weatherInfo: InfoModel!
+    var weatherInfo: InfoModel?
 }

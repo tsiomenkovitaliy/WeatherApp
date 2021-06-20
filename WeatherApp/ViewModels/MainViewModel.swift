@@ -1,6 +1,6 @@
 import Foundation
 
-final class MainViewModel: NSObject{
+final class MainViewModel {
     
     // MARK: - Public Properties
     
@@ -19,9 +19,7 @@ final class MainViewModel: NSObject{
     
     // MARK: - Initializers
     
-    override init() {
-        super.init()
-        
+    init() {
         settingsLocationService()
     }
     
@@ -34,7 +32,7 @@ final class MainViewModel: NSObject{
     func getWeather(_ complete : @escaping Handler) {
         var parameters: [String: String] = [:]
         
-        if text.isEmpty, let coord  = coord{
+        if text.isEmpty, let coord  = coord {
             parameters["lat"] = String(coord.lat)
             parameters["lon"] = String(coord.lon)
         } else {
