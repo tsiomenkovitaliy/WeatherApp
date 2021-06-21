@@ -1,6 +1,6 @@
 import Foundation
 
-struct CoordModel : Codable {
+struct CoordModel : Decodable {
     let lon: Double
     let lat: Double
 }

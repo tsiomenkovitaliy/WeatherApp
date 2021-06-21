@@ -1,6 +1,6 @@
 import Foundation
 
-struct SysModel : Codable {
+struct SysModel : Decodable {
     let type: Int
     let id: Int
     let country: String

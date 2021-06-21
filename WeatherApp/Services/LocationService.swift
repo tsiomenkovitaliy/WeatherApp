@@ -4,6 +4,11 @@ import UIKit
 
 final class LocationService: NSObject {
     
+    // MARK: - Public Properties
+    
+    static let shared = LocationService()
+    var locationChange: ((CoordModel) -> ())?
+    
     //MARK: - Private Properties
     
     private lazy var locationManager: CLLocationManager = {
@@ -12,11 +17,6 @@ final class LocationService: NSObject {
         locationManager.requestWhenInUseAuthorization()
         return locationManager
     } ()
-    
-    // MARK: - Public Properties
-    
-    static let shared = LocationService()
-    var locationChange: ((CoordModel) -> ())?
     
     // MARK: - Public Methods
     

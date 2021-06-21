@@ -1,6 +1,6 @@
 import Foundation
 
-struct WindModel : Codable {
+struct WindModel : Decodable {
     let speed: Double
     let deg: Int
 }

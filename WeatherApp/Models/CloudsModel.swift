@@ -1,5 +1,5 @@
 import Foundation
 
-struct CloudsModel : Codable {
+struct CloudsModel : Decodable {
     let all: Int
 }

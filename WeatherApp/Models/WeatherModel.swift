@@ -1,6 +1,6 @@
 import Foundation
 
-struct WeatherModel : Codable {
+struct WeatherModel : Decodable {
     let id: Int
     let main: String
     let description: String
